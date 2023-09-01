@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/contact.css">
+<div class="container">
+<form onsubmit="sendEmail()">
+  <label for="nombre" class="text-white">Nombre:</label><br/>
+  <input type="text" id="nombre" name="nombre" placeholder="ingrese su nombre" required><br/>
+  <label for="email" class="text-white">Email:</label><br/>
+  <input type="email" id="email" name="email" placeholder="ingrese su mail" required/><br />
+  <label for="mensaje" class="text-white">Mensaje:</label><br/>
+  <textarea id="mensaje" rows="4" name="mensaje" placeholder="escriba su mensaje" required></textarea><br />
+  <input type="submit" value="Enviar mensaje" />
+</form>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendEmail(){
+    Email.send({
+    Host : "estrella71oeec@gmail.com",
+    Username : "ailenestrella97@outlook.com",
+    Password : "00F440E0D625E2726C7A6EAE3F880916088B",
+    To : 'estrella71oeec@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "Nuevo formulario de contacto",
+    Body : "Nombre: " + document.getElementById("nombre").value
+    + "<br> Email: " + document.getElementById("email").value
+    + "<br> Mensaje: " + document.getElementById("mensaje").value  
+}).then(
+  mensaje => alert(mensaje)
+);
+}
+</script>
+</div>
